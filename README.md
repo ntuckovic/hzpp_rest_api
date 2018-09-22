@@ -98,9 +98,44 @@ gunicorn app:__hug_wsgi__ --bind=0.0.0.0:8000 --workers=5 --timeout=120 --worker
 }
 ```
 
-### GET: /trains?start_id={station_id}&destination_id={station_id}
+### GET: /trains?start_id={station_id}&destination_id={station_id}&date=2018-12-07
+
+#### Parameters
+
+* `start_id` - required - id value of departure train station
+* `destination_id` - required - id value of destination train station
+* `date` - optional - default is current day - date of journey formated in `YYYY-MM-DD`
 
 #### Example response
+
+```json
+{
+    "trains": [
+        {
+            "time_departure": "04:44",
+            "id": 970,
+            "time_arrival": "06:24",
+            "time_duration": "01:40",
+            "count_transfer": 0
+        },
+        {
+            "time_departure": "05:37",
+            "id": 2202,
+            "time_arrival": "07:06",
+            "time_duration": "01:29",
+            "count_transfer": 0
+        },
+        {
+            "time_departure": "07:48",
+            "id": 2204,
+            "time_arrival": "09:18",
+            "time_duration": "01:30",
+            "count_transfer": 0
+        },
+        ...
+    ]
+}
+```
 
 
 
