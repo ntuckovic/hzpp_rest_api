@@ -23,17 +23,19 @@ train_row_cell_parse_keys = {
 reservations_endpoint_template = '/Ticket/Journey'
 
 @hug.get('/stations')
-def get_stations(list_names: hug.types.boolean = False) -> dict:
+def get_stations(list_names: hug.types.boolean = False) -> list:
     stations_url = f'{hzpp_url}{stations_endpoint_template}'
 
     response = requests.get(stations_url)
     locations_str = response.text.replace('var locs = ', '')
     locations_lists = demjson.decode(locations_str)
-    locations = {location[1]:location[0] for location in locations_lists}
+    locations = [
+        { 'id': int(location[0]), 'name': location[1] } for location in locations_lists
+    ]
 
     return locations
 
-@hug.post('/trains')
+@hug.get('/trains')
 def get_trains(start_id: hug.types.number, destination_id: hug.types.number, date: hug.types.text = '') -> list:
     if not date:
         date = datetime.now().strftime('%Y-%m-%d')
