@@ -137,5 +137,50 @@ gunicorn app:__hug_wsgi__ --bind=0.0.0.0:8000 --workers=5 --timeout=120 --worker
 }
 ```
 
+## API specification
+
+API specification is available on any not matched url of application (`hug` package goodie).
+For example if you navigate locally to root (`http://localhost:8000/`) of app you will get json response of current available endpoints:
+
+```json
+{
+  "404": "The API call you tried to make was not defined. Here's a definition of the API to help you get going :)",
+  "documentation": {
+    "handlers": {
+      "/stations": {
+        "GET": {
+          "examples": [
+            "http://localhost:8000/stations"
+          ],
+          "outputs": {
+            "format": "JSON (Javascript Serialized Object Notation)",
+            "content_type": "application/json; charset=utf-8"
+          }
+        }
+      },
+      "/trains": {
+        "GET": {
+          "outputs": {
+            "format": "JSON (Javascript Serialized Object Notation)",
+            "content_type": "application/json; charset=utf-8"
+          },
+          "inputs": {
+            "start_id": {
+              "type": "A Whole number"
+            },
+            "destination_id": {
+              "type": "A Whole number"
+            },
+            "date": {
+              "type": "Basic text / string value",
+              "default": ""
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
 
 
