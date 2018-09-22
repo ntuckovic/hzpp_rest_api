@@ -61,7 +61,7 @@ For the ones who find this code helpful, feel free to use it in any way you wann
 ## Run in production
 
 When running app in production consider using more than 2 workes, specially more than 1.
-Also, `gunicorn` has issues with some deploy vendors (AWS and their ELBs) when using its defualt sync workers, so consider using `eventlet` or `gevent` workers. I did not notice anu problems on any deployment vendors when I runned `5` `eventlet` workers, for example:
+Also, `gunicorn` has issues with some deploy vendors (AWS and their ELBs) when using its defualt sync workers, so consider using `eventlet` or `gevent` workers. I did not notice any problems on any deployment vendors when I runned `5` `eventlet` workers, for example:
 
 ```
 gunicorn app:__hug_wsgi__ --bind=0.0.0.0:8000 --workers=5 --timeout=120 --worker-class=eventlet
