@@ -15,6 +15,14 @@ If you find this application offending because of any reason (considering this s
 ## Content
 
 1. [Requirements](#requirements)
+    1. [Python packages](#python-packages)
+2. [Installation](#installation)
+3. [Run locally](#run-locally)
+4. [Run in production](#run-in-production)
+5. [Endpoints](#endpoints)
+    1. [GET: /stations](#get-stations)
+    1. [GET: /trains](#get-trainsstart_idstation_iddestination_idstation_iddate2018-12-07)
+6. [API specification](#api-specification)
 7. [TODOs](#todos) 
 
 ## Requirements
@@ -209,4 +217,8 @@ For example if you navigate locally to root (`http://localhost:8000/`) of app yo
 5. Trains endpoint upgrade
     
     * Support for more advanced filtering parameters, including: class, via, passengers number etc. filtering
+
+6. Docstrings
+
+    * Write methods docstrings
     
