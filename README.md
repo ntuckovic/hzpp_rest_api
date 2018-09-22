@@ -6,11 +6,16 @@ Rest API for hzpp.hr
 
 As frequent Croatian Railways user for everyday communting from home to work and vice-versa, I wanted some quick, nicely formatted and easily accesible data source, for fun and educational purpose, to available trains, their departure times and seat reservations. Croatian Railways do not have any publicly open APIs for such purposes (such a shame if you consider time we live in), so this little python app scrapes official webpage and its sources to return two types information for now: List of stations, list of trains available between to stations.
 
-#### Notice to Croatian Railways employees:
+#### Notice to Croatian Railways staff:
 
-This is my humble contribution to make public data more accessible to its public, to ones that are earning money for your salaries.
+This is my humble contribution to make public data more accessible to ones that are earning money for your salaries.
 
-If you find this offending because of any reason (considering this somekind of hacking acitivity or data thievery) then we do not have nothing to talk about. Please leave this repository link and never try to contact me. Go make yourself a coffee in your office and continue with your "work". It won't last much longer so enjoy while you can.
+If you find this application offending because of any reason (considering this somekind of hacking acitivity, data thievery etc.) then we have nothing to talk about. Please leave this repository link and never try to contact me, instead, go make yourself a coffee in your office and continue with your "work". It won't last much longer so enjoy while you can.
+
+## Content
+
+1. [Requirements](#requirements)
+7. [TODOs](#todos) 
 
 ## Requirements
 
