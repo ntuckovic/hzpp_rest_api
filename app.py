@@ -1,6 +1,5 @@
 import hug
 import requests
-import json
 import demjson
 
 from falcon import HTTP_400
@@ -23,6 +22,7 @@ train_row_cell_parse_keys = {
 }
 reservations_endpoint_template = '/Ticket/Journey'
 
+
 @hug.get('/stations')
 def get_stations():
     stations_url = f'{hzpp_url}{stations_endpoint_template}'
@@ -31,32 +31,34 @@ def get_stations():
     stations_str = response.text.replace('var locs = ', '')
     stations_lists = demjson.decode(stations_str)
     stations = [
-        { 'id': int(station[0]), 'name': station[1] } for station in stations_lists
+        {'id': int(station[0]), 'name': station[1]} for station in stations_lists
     ]
 
     return {
         'stations': stations
     }
 
+
 @hug.get('/trains')
 def get_trains(
-        response,
-        start_id: hug.types.number,
-        destination_id: hug.types.number,
-        date: hug.types.text = '',
-    ):
+    response,
+    start_id: hug.types.number,
+    destination_id: hug.types.number,
+    date: hug.types.text = '',
+):
     if not date:
         date = datetime.now().strftime('%Y-%m-%d')
-    
-    trains_endpoint = trains_endpoint_template.format(start_id, destination_id, date)
+
+    trains_endpoint = trains_endpoint_template.format(
+        start_id, destination_id, date)
     trains_url = f'{hzpp_sales_url}{trains_endpoint}'
 
     response = requests.get(trains_url)
     soup = BeautifulSoup(response.text, features='html.parser')
-    
+
     try:
         soup_train_rows = soup.find(
-            'div', {'id' : 'tt_Result'}).find_all('div', {'class': 'item row'})
+            'div', {'id': 'tt_Result'}).find_all('div', {'class': 'item row'})
     except AttributeError:
         response.status = HTTP_400
 
