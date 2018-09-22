@@ -54,5 +54,53 @@ Also, `gunicorn` has issues with some deploy vendors (AWS and their ELBs) when u
 gunicorn app:__hug_wsgi__ --bind=0.0.0.0:8000 --workers=5 --timeout=120 --worker-class=eventlet
 ```
 
+## Endpoints
+
+### GET: /stations
+
+#### Example response
+
+```json
+{
+    "stations": 
+        [
+        ...
+            {
+                "id": 76260,
+                "name": "Knin"
+            },
+            {
+                "id": 78653,
+                "name": "Komin"
+            },
+            {
+                "id": 74407,
+                "name": "Konjšćina"
+            },
+            {
+                "id": 78801,
+                "name": "Kopanica-Beravci"
+            },
+            {
+                "id": 73160,
+                "name": "Koprivnica"
+            },
+            {
+                "id": 76411,
+                "name": "Koprno"
+            },
+            {
+                "id": 73704,
+                "name": "Koreničani"
+            },
+        ...
+        ]
+}
+```
+
+### GET: /trains?start_id={station_id}&destination_id={station_id}
+
+#### Example response
+
 
 
