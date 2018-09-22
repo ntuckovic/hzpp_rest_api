@@ -183,4 +183,21 @@ For example if you navigate locally to root (`http://localhost:8000/`) of app yo
 }
 ```
 
+## TODOs
 
+1. Reservation endpoint
+
+    * For some trains there is requirement of seats reservation, and hzpp.hr have this option in their official forms. Problem is that reservation form is available under sessioned requests with somekind of basket id in url, which was not succsessfully extracted till now
+
+2. Tests
+
+    * Application is dying for some test cases
+
+3. CI runners
+
+    * run tests on CI to show coverage
+
+4. Dockerize
+
+    * Make runnable Docker image of application
+    
