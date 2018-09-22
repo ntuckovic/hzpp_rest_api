@@ -43,4 +43,4 @@ If you find this offending because of any reason (considering this somekind of h
     gunicorn --reload app:__hug_wsgi__ --bind=0.0.0.0:8000 --workers=2 --timeout=120
     ```
 
-    #### Notice: `--reload` flag indicates that `gunicorn` restarts workers everytime you make changes in code
+    ##### Notice: `--reload` flag indicates that `gunicorn` restarts workers everytime you make changes in code
