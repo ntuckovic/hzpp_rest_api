@@ -3,3 +3,4 @@ eventlet==0.24.1
 hug==2.4.1
 requests==2.19.1
 beautifulsoup4==4.6.3
+demjson==2.2.4
