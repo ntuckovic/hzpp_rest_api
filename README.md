@@ -1,10 +1,10 @@
 ![HZPP REST API](/media/hzpp_api_logo.png?raw=true)
 
-Rest API for hzpp.hr - passengers transfers
+Rest API for hzpp.hr
 
 ## Why?
 
-As frequent Croatian Railways user for everyday communting from home to work and vice-versa, I wanted some quick, nicely formatted and easily accesible data source, for fun and educational purpose, to available trains, their departure times and seat reservations. Croatian Railways do not have any publicly open APIs for such purposes (such a shame if you consider time when we are living), so this little python app scrapes official webpage and its sources to return two types information for now: List of stations, list of trains available between to stations.
+As frequent Croatian Railways user for everyday communting from home to work and vice-versa, I wanted some quick, nicely formatted and easily accesible data source, for fun and educational purpose, to available trains, their departure times and seat reservations. Croatian Railways do not have any publicly open APIs for such purposes (such a shame if you consider time we live in), so this little python app scrapes official webpage and its sources to return two types information for now: List of stations, list of trains available between to stations.
 
 #### Notice to Croatian Railways employees:
 
@@ -200,4 +200,8 @@ For example if you navigate locally to root (`http://localhost:8000/`) of app yo
 4. Dockerize
 
     * Make runnable Docker image of application
+
+5. Trains endpoint upgrade
+    
+    * Support for more advanced filtering parameters, including: class, via, passengers number etc. filtering
     
