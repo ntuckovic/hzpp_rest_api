@@ -3,6 +3,7 @@ import requests
 import json
 import demjson
 
+from falcon import HTTP_400
 from datetime import datetime
 from bs4 import BeautifulSoup
 
@@ -23,20 +24,27 @@ train_row_cell_parse_keys = {
 reservations_endpoint_template = '/Ticket/Journey'
 
 @hug.get('/stations')
-def get_stations(list_names: hug.types.boolean = False) -> list:
+def get_stations():
     stations_url = f'{hzpp_url}{stations_endpoint_template}'
 
     response = requests.get(stations_url)
-    locations_str = response.text.replace('var locs = ', '')
-    locations_lists = demjson.decode(locations_str)
-    locations = [
-        { 'id': int(location[0]), 'name': location[1] } for location in locations_lists
+    stations_str = response.text.replace('var locs = ', '')
+    stations_lists = demjson.decode(stations_str)
+    stations = [
+        { 'id': int(station[0]), 'name': station[1] } for station in stations_lists
     ]
 
-    return locations
+    return {
+        'stations': stations
+    }
 
 @hug.get('/trains')
-def get_trains(start_id: hug.types.number, destination_id: hug.types.number, date: hug.types.text = '') -> list:
+def get_trains(
+        response,
+        start_id: hug.types.number,
+        destination_id: hug.types.number,
+        date: hug.types.text = '',
+    ):
     if not date:
         date = datetime.now().strftime('%Y-%m-%d')
     
@@ -45,9 +53,19 @@ def get_trains(start_id: hug.types.number, destination_id: hug.types.number, dat
 
     response = requests.get(trains_url)
     soup = BeautifulSoup(response.text, features='html.parser')
-    soup_train_rows = soup.find(
-        'div', {'id' : 'tt_Result'}).find_all('div', {'class': 'item row'})
     
+    try:
+        soup_train_rows = soup.find(
+            'div', {'id' : 'tt_Result'}).find_all('div', {'class': 'item row'})
+    except AttributeError:
+        response.status = HTTP_400
+
+        return {
+            'errors': {
+                'global': 'There are no scheduled trains between provided station ids!'
+            }
+        }
+
     trains = []
     for train_row in soup_train_rows:
         train_cells = train_row.find_all('div', {'class': 'col-1-7 cell'})
@@ -63,4 +81,6 @@ def get_trains(start_id: hug.types.number, destination_id: hug.types.number, dat
 
         trains.append(train_data)
 
-    return trains
+    return {
+        'trains': trains
+    }
