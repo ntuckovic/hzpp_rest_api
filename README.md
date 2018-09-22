@@ -10,6 +10,8 @@ This is my humble contribution to make public data more accessible to ones that 
 
 If you find this application offending because of any reason (considering this somekind of hacking acitivity, data thievery etc.) then we have nothing to talk about. Please leave this repository link and never try to contact me, instead, go make yourself a coffee in your office and continue with your "work". It won't last much longer so enjoy while you can.
 
+For the ones who find this code helpful, feel free to use it in any way you wanna to. I'm always open for advices and possible cooperations. Cheers!
+
 ## Content
 
 1. [Requirements](#requirements)
