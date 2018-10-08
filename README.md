@@ -2,15 +2,15 @@
 
 ## Why?
 
-As frequent Croatian Railways user for everyday communting from home to work and vice-versa, I wanted some quick, nicely formatted and easily accesible data source, for fun and educational purpose, to available trains, their departure times and seat reservations. Croatian Railways do not have any publicly open APIs for such purposes (such a shame if you consider time we live in), so this little python app scrapes official webpage and its sources to return two types information for now: List of stations, list of trains available between to stations.
+As frequent Croatian Railways user for everyday commuting from home to work and vice-versa, I wanted some quick, nicely formatted and easily accessible data source, for fun and educational purpose, to available trains, their departure times and seat reservations. Croatian Railways do not have any publicly open APIs for such purposes (such a shame if you consider the time we live in), so this little python app scrapes official webpage and its sources to return two types information for now: List of stations, list of trains available between to stations.
 
 #### Notice to Croatian Railways staff:
 
 This is my humble contribution to make public data more accessible to ones that are earning money for your salaries.
 
-If you find this application offending because of any reason (considering this somekind of hacking acitivity, data thievery etc.) then we have nothing to talk about. Please leave this repository link and never try to contact me, instead, go make yourself a coffee in your office and continue with your "work". It won't last much longer so enjoy while you can.
+If you find this application offending because of any reason (considering this some kind of hacking activity, data thievery etc.) then we have nothing to talk about. Please leave this repository link and never try to contact me, instead, go make yourself a coffee in your office and continue with your "work". It won't last much longer so enjoy while you can.
 
-For the ones who find this code helpful, feel free to use it in any way you wanna to. I'm always open for advices and possible cooperations. Cheers!
+For the ones who find this code helpful, feel free to use it in any way you wanna to. I'm always open for advice and possible cooperations. Cheers!
 
 ## Content
 
@@ -41,7 +41,7 @@ For the ones who find this code helpful, feel free to use it in any way you wann
 ## Installation
 
 1. Navigate to root folder (where `requirements.txt` is located)
-2. Install dependecies:
+2. Install dependencies:
 
     ```
     pip install -r requirements.txt
@@ -60,8 +60,8 @@ For the ones who find this code helpful, feel free to use it in any way you wann
 
 ## Run in production
 
-When running app in production consider using more than 2 workes, specially more than 1.
-Also, `gunicorn` has issues with some deploy vendors (AWS and their ELBs) when using its defualt sync workers, so consider using `eventlet` or `gevent` workers. I did not notice any problems on any deployment vendors when I runned `5` `eventlet` workers, for example:
+When running app in production consider using more than 2 workes, especially more than 1.
+Also, `gunicorn` has issues with some deploy vendors (AWS and their ELBs) when using its default sync workers, so consider using `eventlet` or `gevent` workers. I did not notice any problems on any deployment vendors when I ran `5` `eventlet` workers, for example:
 
 ```
 gunicorn app:__hug_wsgi__ --bind=0.0.0.0:8000 --workers=5 --timeout=120 --worker-class=eventlet
@@ -200,7 +200,7 @@ For example if you navigate locally to root (`http://localhost:8000/`) of app yo
 
 1. Reservation endpoint
 
-    * For some trains there is requirement of seats reservation, and hzpp.hr have this option in their official forms. Problem is that reservation form is available under sessioned requests with somekind of basket id in url, which was not succsessfully extracted till now
+    * For some trains there is a requirement of seat reservation, and hzpp.hr have this option in their official forms. Problem is that reservation form is available under sessioned requests with some kind of basket id in url, which was not successfully extracted till now
 
 2. Tests
 
