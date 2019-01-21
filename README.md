@@ -6,9 +6,8 @@ As frequent Croatian Railways user for everyday commuting from home to work and 
 
 #### Notice to Croatian Railways staff:
 
-This is my humble contribution to make public data more accessible to ones that are earning money for your salaries.
-
-If you find this application offending because of any reason (considering this some kind of hacking activity, data thievery etc.) then we have nothing to talk about. Please leave this repository link and never try to contact me, instead, go make yourself a coffee in your office and continue with your "work". It won't last much longer so enjoy while you can.
+This is my humble contribution to make public data more accessible to ones that deserve it, tax payers.
+Intention of this application is not somekind of hacking activity nor data thievery but greater public good!
 
 For the ones who find this code helpful, feel free to use it in any way you wanna to. I'm always open for advice and possible cooperations. Cheers!
 
